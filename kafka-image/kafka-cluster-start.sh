@@ -97,7 +97,7 @@ kafka-server-start.sh -daemon ${KAFKA_HOME}/config/server.properties \
 echo "$(date +'%Y-%m-%d %H:%M:%S') - kafka broker2 start success." >> ${SERVER_LOG_DIRS}/kafka-cluster-start.log || \
 echo "$(date +'%Y-%m-%d %H:%M:%S') - kafka broker2 start failed." >> ${SERVER_LOG_DIRS}/kafka-cluster-start.log
 
-# 判断Kafka进程是否接受，如果没有结束该容器是不能停止的
+# 防止镜像退出，当Kafka进程全部退出后程序才会自动退出
 while [[ -n $(jps | grep Kafka | awk '{print $1}') ]]
 do
     sleep 3
