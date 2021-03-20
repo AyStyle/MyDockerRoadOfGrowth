@@ -29,7 +29,7 @@ docker image push dreedisgood/kafka:2.12-2.7.0
 
 ### 第五步：启动kafka伪分布式容器
 ```
-docker container run -d --name local_kafka -e SERVER_ZOOKEEPER_CONNECT=<这里写Zookeeper地址，必填参数> -p 9092:9092 dreedisgood/kafka:2.12-2.7.0 
+docker container run --restart always -d --name local_kafka -e SERVER_ZOOKEEPER_CONNECT=<这里写Zookeeper地址，必填参数> -p 9092:9092 dreedisgood/kafka:2.12-2.7.0 
 ```
 
 
